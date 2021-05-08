@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ApiGithub from "./conf/api.github";
 import { IssuesList, Header, Loading, IssueDetails } from "./components";
-import { Route, Switch } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 
 export default class App extends Component {
   constructor(props) {
@@ -45,8 +45,10 @@ export default class App extends Component {
             {...props}
               issues={this.state.issues}
             /> 
-           )
-           }
+           )}
+            />
+            <Redirect
+              to="/"
             />
          </Switch>
       ): (<Loading/>)}

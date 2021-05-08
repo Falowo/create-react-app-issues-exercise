@@ -13,6 +13,8 @@ const IssuesList = (props) => {
             <NavLink
               to={{ pathname: `/issue/${i}/`, search: `?index=${i}` }}
               issue={issue}
+              className="text-decoration-none"
+              
             >
               <Issue key={issue.id} index={i} issue={issue} />
             </NavLink>
