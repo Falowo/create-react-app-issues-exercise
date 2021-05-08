@@ -42,7 +42,7 @@ export default class App extends Component {
            path="/issue/:index" 
            render={(props)=>(
             <IssueDetails
-            {...props}
+            {...props} 
               issues={this.state.issues}
             /> 
            )}
