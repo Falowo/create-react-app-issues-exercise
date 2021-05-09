@@ -11,10 +11,9 @@ const IssuesList = (props) => {
         <ul className="list-group">
           {issues.map((issue, i) => (
             <NavLink
-              to={{ pathname: `/issue/${i}/`, search: `?index=${i}` }}
+              to={{ pathname: `/issue/${i}/`, search: `?id=${issue.id}` }}
               issue={issue}
               className="text-decoration-none"
-              
             >
               <Issue key={issue.id} index={i} issue={issue} />
             </NavLink>

@@ -1,26 +1,25 @@
 import React, { Component } from "react";
 import Issue from "../issues-list/issue/Issue";
 import ReactMarkdown from "react-markdown";
-import rehypeRaw from 'rehype-raw'
+import rehypeRaw from "rehype-raw";
 export default class IssueDetails extends Component {
-
-  
-
   render() {
     const issues = this.props.issues;
-    let params = new URLSearchParams(window.location.search);
-    const issue = issues[params.get("index")];
+    // const params = new URLSearchParams(window.location.search);
+    // const id = params.get("id");
+    const index = this.props.match.params.index;
+    const issue = issues[index];
     const input = issue.body;
     return (
       <>
-        <h1>issue # {issue.number}</h1>
+       
         <Issue issue={issue} />
-        <ReactMarkdown          
-        children={input}
-        rehypePlugins={[rehypeRaw]}
-        />
-          
-        <a href={issue.html_url}>Go to the original issue</a>
+        <div className="border rounded p-2">
+          <ReactMarkdown children={input} rehypePlugins={[rehypeRaw]} />
+        </div>
+        <div className="border rounded p-2">
+          <a href={issue.html_url}>Go to the original issue url</a>
+        </div>
       </>
     );
   }

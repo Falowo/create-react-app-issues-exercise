@@ -22,16 +22,18 @@ const Issue = (props) => {
 
   return (
     <li
-      key={issue.id}
-      className={"list-group-item d-flex justify-content-start align-items-start flex-wrap " + Style.myLi}
+      className={`list-group-item d-flex rounded justify-content-start 
+        align-items-start flex-wrap ${Style.myLi}`}
     >
-      {issue.state === "open" ? (
-        <span className="badge rounded-pill mx-1 bg-light text-danger border border-danger">
-          !
-        </span>
-      ) : null}
+      <div className="d-wlex flex-row flex-nowrap">
+        {issue.state === "open" ? (
+          <span className="badge rounded-pill mx-1 bg-light text-danger border border-danger">
+            !
+          </span>
+        ) : null}
 
-      <span className="title">{issue.title}</span>
+        <span className="title">{issue.title}</span>
+      </div>
       {issue.labels.map((label, index) => (
         <span
           className="badge rounded-pill mx-1"
